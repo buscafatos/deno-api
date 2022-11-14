@@ -8,10 +8,15 @@ const API_KEY = Deno.env.get("API_KEY");
 function handler(_req) {
 
   const queryObject = url.parse(_req.url, true).query;
-  console.log(queryObject.q);
 
-  let _url = 'https://www.googleapis.com/customsearch/v1?key='+API_KEY+'&cx='+SEARCH_ENGINE_ID+'&q='+queryObject.q;
-  console.log('url =' + _url);
+  if (!queryObject.q) {
+    return '';
+  }
+
+  console.log('last search term=' + queryObject.q);
+
+  // https://developers.google.com/custom-search/v1/overview
+  let _url = 'https://www.googleapis.com/customsearch/v1?num=10&safe=active&key='+API_KEY+'&cx='+SEARCH_ENGINE_ID+'&q='+queryObject.q;
 
   const request = new Request(_url, {
     method: "GET",
@@ -19,8 +24,9 @@ function handler(_req) {
       "content-type": "application/json",
     },
   });
+  const res = fetch(request);
 
-  return fetch(request);
+  return res;
 }
 
 serve(handler);
