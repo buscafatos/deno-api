@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.140.0/http/server.ts";
-const {google} = require('googleapis');
+import {google} = from 'googleapis';
 const customsearch = google.customsearch('v1');
 
 const SEARCH_ENGINE_ID = '9145e8c50ed1b4c5a'
