@@ -10,10 +10,17 @@ serve((_req) => {
   //   headers: { "content-type": "text/plain" },
   // });
   
-  const res = await customsearch.cse.list({
-    cx: SEARCH_ENGINE_ID,
-    q: _req.params.q,
-    auth: API_KEY,
-  });
-  return res.data;
+  // const res = await customsearch.cse.list({
+  //   cx: SEARCH_ENGINE_ID,
+  //   q: _req.params.q,
+  //   auth: API_KEY,
+  // });
+  // return res.data;
+    customsearch.cse.list({
+      cx: SEARCH_ENGINE_ID,
+      q: _req.params.q,
+      auth: API_KEY,
+    }, function(res){
+      return res.data;
+    });
 });
