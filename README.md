@@ -8,7 +8,6 @@ It's a simple custom google search on specific sites - listed bellow.
 * nodejs
 * [deno](https://deno.com/) account
 * create a google search engine [here](https://programmablesearchengine.google.com/)
-Install **deno-api** com npm
 
 ```bash
   Create two environment variables on deno;
@@ -38,7 +37,8 @@ Easiest way is to install [deployctl](https://deno.com/deploy/docs/deployctl)
 * lupa.uol.com.br/*
 
 
-## 🔗 Contributors
+## Contributors
+
 * [fcavalcantirj](https://github.com/fcavalcantirj)
 * [brunomanoel](https://github.com/brunomanoel)
 ## License
