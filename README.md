@@ -15,6 +15,7 @@ It's a simple custom google search on specific sites - listed bellow.
 
 ```bash
   Create two environment variables on deno;
+  
   * SEARCH_ENGINE_ID = fetch from google console above
   * API_KEY = fetch from google console above
 ```
@@ -29,16 +30,16 @@ Easiest way is to install [deployctl](https://deno.com/deploy/docs/deployctl)
 
 ## Sites searched
 
-* www.justicaeleitoral.jus.br/*
-* www.boatos.org/*
-* g1.globo.com/fato-ou-fake/*
-* www.aosfatos.org/*
-* noticias.uol.com.br/confere/*
-* *.projetocomprova.com.br/*
-* www.e-farsas.com/*
-* www.afp.com/pt/*
-* politica.estadao.com.br/blogs/estadao-verifica/*
-* lupa.uol.com.br/*
+* www.justicaeleitoral.jus.br/
+* www.boatos.org/
+* www.g1.globo.com/fato-ou-fake/
+* www.aosfatos.org/
+* www.noticias.uol.com.br/confere/
+* www.projetocomprova.com.br/
+* www.e-farsas.com/
+* www.afp.com/pt/
+* www.politica.estadao.com.br/blogs/estadao-verifica/
+* www.lupa.uol.com.br/
 
 
 ## Contributors
