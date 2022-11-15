@@ -46,6 +46,11 @@ Easiest way is to install [deployctl](https://deno.com/deploy/docs/deployctl)
 
 * [fcavalcantirj](https://github.com/fcavalcantirj)
 * [brunomanoel](https://github.com/brunomanoel)
+
+## Support
+
+<a href="https://www.buymeacoffee.com/Buscafatos" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174" ></a>
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
