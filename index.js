@@ -114,7 +114,7 @@ router
     <h1>Busca Fatos BETA API</h1>
     <ul>
       <li>working version BETA 0.2 <a href="https://busca-fatos.deno.dev/v1/search/something">here</a></li>
-      <li><a href="https://github.com/buscafatos/deno-api">Our github</a></li>
+      <li><a href="https://github.com/buscafatos/deno-api">Github</a></li>
       <li><a href="https://app.swaggerhub.com/apis/fcavalcantirj/busca-fatos-api/0.0.2">Swagger</a></li>
     </ul>
   </body>
