@@ -1,0 +1,107 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "busca-fatos-api",
+    "description" : "ANTI FAKE-NEWS public tools and API'S",
+    "contact" : {
+      "name" : "Busca Fatos team",
+      "url" : "https://buscafatos.com.br",
+      "email" : "buscafatos@gmail.com"
+    },
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://busca-fatos.deno.dev/"
+  } ],
+  "paths" : {
+    "/v1/search/{query}" : {
+      "get" : {
+        "tags" : [ "Search" ],
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "raw",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "maximum" : 1,
+            "minimum" : 0,
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "ApiResponse" : {
+        "type" : "object",
+        "properties" : {
+          "totalResults" : {
+            "type" : "string"
+          },
+          "searchTerms" : {
+            "type" : "string"
+          },
+          "count" : {
+            "type" : "integer"
+          },
+          "startIndex" : {
+            "type" : "integer"
+          },
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseItem"
+            }
+          }
+        }
+      },
+      "ResponseItem" : {
+        "type" : "object",
+        "properties" : {
+          "title" : {
+            "type" : "string"
+          },
+          "htmlTitle" : {
+            "type" : "string"
+          },
+          "link" : {
+            "type" : "string"
+          },
+          "snippet" : {
+            "type" : "string"
+          },
+          "htmlSnippet" : {
+            "type" : "string"
+          },
+          "thumbnail" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
