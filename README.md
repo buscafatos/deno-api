@@ -1,4 +1,3 @@
-
 # Busca Fatos - search API BETA
 
 This is a simple script to be deployed on [deno](https://deno.com/).
@@ -44,4 +43,3 @@ Easiest way is to install [deployctl](https://deno.com/deploy/docs/deployctl)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
