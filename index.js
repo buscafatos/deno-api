@@ -22,11 +22,8 @@ import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import url from  "https://esm.sh/url";
 import { transform } from "https://esm.sh/node-json-transform";
 
-// const SEARCH_ENGINE_ID = Deno.env.get("SEARCH_ENGINE_ID");
-// const API_KEY = Deno.env.get("API_KEY");
-
-const SEARCH_ENGINE_ID = 'c5b9f089d9f094872';
-const API_KEY = 'AIzaSyCBKy8XXj2K4thyfqtI9sraRlOOCyDB4hE';
+const SEARCH_ENGINE_ID = Deno.env.get("SEARCH_ENGINE_ID");
+const API_KEY = Deno.env.get("API_KEY");
 
 
 let baseMap = {

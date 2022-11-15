@@ -2,6 +2,11 @@
 
 This is a simple script to be deployed on [deno](https://deno.com/).
 It's a simple custom google search on specific sites - listed bellow.
+
+## Try it out
+
+- https://app.swaggerhub.com/apis/fcavalcantirj/busca-fatos-api/0.0.1
+
 ## Requirements
 
 * nodejs
