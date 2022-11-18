@@ -68,7 +68,7 @@ async function asyncHandler(requestUrl, query) {
     // https://developers.google.com/custom-search/v1/overview
     // https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list#request
 
-    let _url = new URL('https://www.googleapis.com/customsearch/v1');
+    let _url = new URL('https://www.googleapis.com/customsearch/v1/siterestrict');
     _url.searchParams.set('num', '10');
     _url.searchParams.set('safe', 'active');
     _url.searchParams.set('q', query);
