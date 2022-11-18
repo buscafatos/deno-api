@@ -5,7 +5,7 @@ It's a simple custom google search on specific sites - listed bellow.
 
 ## Try it out
 
-- https://app.swaggerhub.com/apis/fcavalcantirj/busca-fatos-api/0.0.2
+- https://app.swaggerhub.com/apis/fcavalcantirj/busca-fatos-api/0.0.3
 
 ## Requirements
 

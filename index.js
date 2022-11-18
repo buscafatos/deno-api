@@ -47,6 +47,7 @@ let baseMap = {
 let nestedMap = {
   "item" : {
     "title": "title",
+    "source": "displayLink",
     "htmlTitle": "htmlTitle",
     "link": "link",
     "snippet": "snippet",
@@ -73,6 +74,7 @@ async function asyncHandler(requestUrl, query) {
     _url.searchParams.set('q', query);
     _url.searchParams.set('key', API_KEY);
     _url.searchParams.set('cx', SEARCH_ENGINE_ID);
+    
 
       // pagination
       if (queryObject.st) {
@@ -81,12 +83,25 @@ async function asyncHandler(requestUrl, query) {
         _url.searchParams.set('start', start);
       }
 
+      // count
+      if (queryObject.count) {
+        let count = parseInt(queryObject.count);
+        if (Number.isInteger(count))
+        _url.searchParams.set('num', count);
+      }
+
+      // sort
+      if (queryObject.sort) {
+        _url.searchParams.set('sort', queryObject.sort);
+      }      
+
 
       const resp = await fetch(_url, {
         headers: {
           accept: "application/json",
         },
       });
+
       // raw json from google
       if (queryObject.raw && '1' == queryObject.raw) {
 
