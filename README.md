@@ -1,34 +1,34 @@
-# Busca Fatos - search API BETA
+# Busca Fatos - /search API BETA
 
-This is a simple script to be deployed on [deno](https://deno.com/).
-It's a simple custom google search on specific sites - listed bellow.
+Este é um script BETA para ser deployado no [deno](https://deno.com/).
+É uma simples pesquisa personalizada no Google em sites específicos - listados abaixo.
 
-## Try it out
+## Experimente
 
 - https://app.swaggerhub.com/apis/fcavalcantirj/busca-fatos-api/0.0.3
 
-## Requirements
+## Requisitos
 
 * nodejs
 * [deno](https://deno.com/) account
-* create a google search engine [here](https://programmablesearchengine.google.com/)
+* crie um 'programmablesearch' de pesquisa do google [aqui](https://programmablesearchengine.google.com/)
 
 ```bash
-  Create two environment variables on deno;
+  Crie duas variáveis de ambiente no deno;
   
-  * SEARCH_ENGINE_ID = fetch from google console above
-  * API_KEY = fetch from google console above
+  * SEARCH_ENGINE_ID = buscar no console do Google acima
+  * API_KEY = buscar no console do Google acima
 ```
 
 ## Deploy
 
-Easiest way is to install [deployctl](https://deno.com/deploy/docs/deployctl)
+A maneira mais fácil é instalar [deployctl](https://deno.com/deploy/docs/deployctl)
 ```bash
   deployctl deploy --project[DENO_PROJECT_NAME] --exclude=node_modules --prod index.js
 ```
 
 
-## Sites searched
+## Sites utilizados na busca
 
 * www.justicaeleitoral.jus.br/
 * www.boatos.org/
@@ -42,15 +42,15 @@ Easiest way is to install [deployctl](https://deno.com/deploy/docs/deployctl)
 * www.lupa.uol.com.br/
 
 
-## Contributors
+## Contribuidores
 
 * [fcavalcantirj](https://github.com/fcavalcantirj)
 * [brunomanoel](https://github.com/brunomanoel)
 
-## Support
+## Suporte
 
 <a href="https://www.buymeacoffee.com/Buscafatos" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174" ></a>
 
-## License
+## Licença
 
 [MIT](https://choosealicense.com/licenses/mit/)

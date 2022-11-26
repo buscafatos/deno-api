@@ -18,7 +18,7 @@
  * via REST.
  * 
  * */
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router, isHttpError } from "https://deno.land/x/oak/mod.ts";
 import url from  "https://esm.sh/url";
 import { transform } from "https://esm.sh/node-json-transform";
 
@@ -59,7 +59,7 @@ let nestedMap = {
 
 async function asyncHandler(requestUrl, query) {
 
-	console.log('requestUrl = [%s]', requestUrl)
+	 console.log('requestUrl = [%s]', requestUrl)
 
     const queryObject = url.parse(requestUrl.toString(), true).query;
 
@@ -140,8 +140,29 @@ router
       context.response.body = await asyncHandler(context.request.url, context.params.query);
   });
 
+  function errorHandler(error) {
+    console.log('error');
+    console.log(error);
+  }
+
 const app = new Application();
+
+// app.use(async (context, next) => {
+//   try {
+//     await next();
+//   } catch (err) {
+//     if (isHttpError(err)) {
+//       context.response.status = err.status;
+//     } else {
+//       context.response.status = 500;
+//     }
+//     context.response.body = { error: err.message };
+//     context.response.type = "json";
+//   }
+// });
+
 app.use(router.routes());
 app.use(router.allowedMethods());
+app.addEventListener("error", errorHandler)
 
 await app.listen({ port: 8000 });
