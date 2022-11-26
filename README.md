@@ -24,7 +24,7 @@ Este é um script BETA para ser deployado no [deno](https://deno.com/).
 
 A maneira mais fácil é instalar [deployctl](https://deno.com/deploy/docs/deployctl)
 ```bash
-  deployctl deploy --project[DENO_PROJECT_NAME] --exclude=node_modules --prod index.js
+  deployctl deploy --project[NOME_DO_PROJETO_DENO] --exclude=node_modules --prod index.js
 ```
 
 
