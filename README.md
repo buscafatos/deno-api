@@ -10,7 +10,7 @@ Este é um script BETA para ser deployado no [deno](https://deno.com/).
 ## Requisitos
 
 * nodejs
-* [deno](https://deno.com/) account
+* crie uma conta no [deno](https://deno.com/)
 * crie um 'programmablesearch' de pesquisa do google [aqui](https://programmablesearchengine.google.com/)
 
 ```bash
