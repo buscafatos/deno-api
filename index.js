@@ -59,11 +59,11 @@ let nestedMap = {
 
 async function asyncHandler(requestUrl, query) {
 
-	 console.log('requestUrl = [%s]', requestUrl)
+	   console.log('searchTerm = [%s] --- requestUrl = [%s]', query, requestUrl);
 
     const queryObject = url.parse(requestUrl.toString(), true).query;
 
-    console.log('last search term [%s]', query);
+    // console.log('last search term [%s]', query);
 
     // https://developers.google.com/custom-search/v1/overview
     // https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list#request
@@ -141,8 +141,10 @@ router
   });
 
   function errorHandler(error) {
-    console.log('error');
-    console.log(error);
+    if(error.error && !error.error.includes('UnexpectedEof: early eof')) {
+      // console.log('error');
+      console.log(error.error);
+    }
   }
 
 const app = new Application();
