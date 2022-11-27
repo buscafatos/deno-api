@@ -142,6 +142,7 @@ router
 
   function errorHandler(e) {
     const lowerMsg = e.error?.message?.toLowerCase();
+    console.log(`lowerMsg=[${lowerMsg}]`)
 
     if (lowerMsg?.includes('early eof')) { return }
     console.error(e.error);
