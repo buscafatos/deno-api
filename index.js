@@ -141,7 +141,7 @@ router
   });
 
   function errorHandler(error) {
-    if(error.error && error.error.indexOf('UnexpectedEof') > 0) {
+    if(error.error && !new String(error.error).includes('UnexpectedEof: early eof')) {
       // console.log('error');
       console.log(error.error);
     }
