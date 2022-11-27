@@ -140,11 +140,11 @@ router
       context.response.body = await asyncHandler(context.request.url, context.params.query);
   });
 
-  function errorHandler(error) {
-    if(error.error && new String(error.error).indexOf('UnexpectedEof') > 0) {
-      // console.log('error');
-      console.log(error.error);
-    }
+  function errorHandler(e) {
+    const lowerMsg = e.error?.message?.toLowerCase();
+
+    if (lowerMsg?.includes('early eof')) { return }
+    console.error(e.error);
   }
 
 const app = new Application();
