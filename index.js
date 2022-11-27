@@ -144,8 +144,7 @@ router
     const lowerMsg = e.error?.message?.toLowerCase();
     console.log(`lowerMsg=[${lowerMsg}]`)
 
-    if (lowerMsg.includes('early eof')) { return }
-      console.log('cheguei aqui')
+    if (lowerMsg?.includes('early eof')) { return }
       console.error(e.error);
   }
 
@@ -165,8 +164,8 @@ const app = new Application();
 //   }
 // });
 
+app.addEventListener("error", errorHandler);
 app.use(router.routes());
 app.use(router.allowedMethods());
-app.addEventListener("error", errorHandler)
 
 await app.listen({ port: 8000 });
