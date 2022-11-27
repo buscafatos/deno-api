@@ -145,7 +145,8 @@ router
     console.log(`lowerMsg=[${lowerMsg}]`)
 
     if (lowerMsg.includes('early eof')) { return }
-    console.error(e.error);
+      console.log('cheguei aqui')
+      console.error(e.error);
   }
 
 const app = new Application();
