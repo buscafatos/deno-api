@@ -21,6 +21,7 @@
 import { Application, Router, isHttpError } from "https://deno.land/x/oak/mod.ts";
 import url from  "https://esm.sh/url";
 import { transform } from "https://esm.sh/node-json-transform";
+import puppeteer from "https://deno.land/x/puppeteer@16.2.0/mod.ts";
 
 const SEARCH_ENGINE_ID = Deno.env.get("SEARCH_ENGINE_ID");
 const API_KEY = Deno.env.get("API_KEY");
@@ -119,6 +120,30 @@ async function asyncHandler(requestUrl, query) {
       }
 }
 
+
+async function crawl(requestUrl) {
+
+  const queryObject = url.parse(requestUrl.toString(), true).query;
+
+  let fullUrl = `https://${queryObject.url}`;
+
+  console.log(`crawling url = [${fullUrl}]`);
+
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto(fullUrl, {waitUntil: 'domcontentloaded'});
+
+  // let content = await page.content();
+  const extractedText = await page.$eval('*', (el) => el.innerText);
+
+  await browser.close();
+
+  // console.log(content);
+
+  return extractedText;
+
+}
+
 const router = new Router();
 router
   .get("/", (context) => {
@@ -138,6 +163,9 @@ router
   })
   .get("/v1/search/:query", async (context) => {
       context.response.body = await asyncHandler(context.request.url, context.params.query);
+  })
+  .get("/v1/crawl", async (context) => {
+      context.response.body = await crawl(context.request.url);
   });
 
   function errorHandler(e) {
