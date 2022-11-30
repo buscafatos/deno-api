@@ -133,7 +133,7 @@ async function crawl(requestUrl) {
 
     const status = await Deno.permissions.query({ name: "write" });
     if (status.state !== "granted") {
-      throw new Error("need write permission");
+      // throw new Error("need write permission");
     }
 
     const tempDirName0 = await Deno.makeTempDir();
