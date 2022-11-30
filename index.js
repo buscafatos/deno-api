@@ -122,42 +122,41 @@ async function asyncHandler(requestUrl, query) {
 
 async function crawl(requestUrl) {
 
-  const queryObject = url.parse(requestUrl.toString(), true).query;
+    const queryObject = url.parse(requestUrl.toString(), true).query;
 
-  let fullUrl = `https://${queryObject.url}`;
+    let fullUrl = `https://${queryObject.url}`;
 
-  // await Deno.permissions.request({ name: "write" });
-  const desc1 = { name: "write", path: "tmp" };
-  const status1 = await Deno.permissions.request(desc1);
-  console.log(status1);
+    // await Deno.permissions.request({ name: "write" });
+    const desc1 = { name: "write", path: "tmp" };
+    const status1 = await Deno.permissions.request(desc1);
+    console.log(status1);
 
-  const status = await Deno.permissions.query({ name: "write" });
-  if (status.state !== "granted") {
-    throw new Error("need write permission");
-  }
+    const status = await Deno.permissions.query({ name: "write" });
+    if (status.state !== "granted") {
+      throw new Error("need write permission");
+    }
 
-  const tempDirName0 = await Deno.makeTempDir();
-  console.log(tempDirName0);
+    const tempDirName0 = await Deno.makeTempDir();
+    console.log(tempDirName0);
 
-  console.log(`crawling url = [${fullUrl}]`);
+    console.log(`crawling url = [${fullUrl}]`);
 
-  // const browser = await puppeteer.launch();
+    // const browser = await puppeteer.launch();
 
-  const browser = await puppeteer.launch({
+    const browser = await puppeteer.launch({
         headless: true
     });
-  const page = await browser.newPage();
-  await page.goto(fullUrl, {waitUntil: 'domcontentloaded'});
+    const page = await browser.newPage();
+    await page.goto(fullUrl, {waitUntil: 'domcontentloaded'});
 
-  // let content = await page.content();
-  const extractedText = await page.$eval('*', (el) => el.innerText);
+    // let content = await page.content();
+    const extractedText = await page.$eval('*', (el) => el.innerText);
 
-  await browser.close();
+    await browser.close();
 
-  // console.log(content);
+    // console.log(content);
 
-  return extractedText;
-
+    return extractedText;
 }
 
 const router = new Router();
