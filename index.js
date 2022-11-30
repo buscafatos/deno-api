@@ -26,7 +26,6 @@ import puppeteer from "https://deno.land/x/puppeteer@16.2.0/mod.ts";
 const SEARCH_ENGINE_ID = Deno.env.get("SEARCH_ENGINE_ID");
 const API_KEY = Deno.env.get("API_KEY");
 
-
 let baseMap = {
   item: {
     totalResults: "queries.request.0.totalResults",
@@ -127,9 +126,26 @@ async function crawl(requestUrl) {
 
   let fullUrl = `https://${queryObject.url}`;
 
+  // await Deno.permissions.request({ name: "write" });
+  const desc1 = { name: "write", path: "tmp" };
+  const status1 = await Deno.permissions.request(desc1);
+  console.log(status1);
+
+  const status = await Deno.permissions.query({ name: "write" });
+  if (status.state !== "granted") {
+    throw new Error("need write permission");
+  }
+
+  const tempDirName0 = await Deno.makeTempDir();
+  console.log(tempDirName0);
+
   console.log(`crawling url = [${fullUrl}]`);
 
-  const browser = await puppeteer.launch();
+  // const browser = await puppeteer.launch();
+
+  const browser = await puppeteer.launch({
+        headless: true
+    });
   const page = await browser.newPage();
   await page.goto(fullUrl, {waitUntil: 'domcontentloaded'});
 
